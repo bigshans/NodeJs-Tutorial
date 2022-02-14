@@ -4,8 +4,10 @@
 
 NodeJs 于 2009 年 5 月发布，迄今已逾 12 年了（本文写作于 2022 年 2 月撰），最初旨为解决 c10k 问题。但比起它原要专注的领域，现今在前端作为 JavaScript Runtime ，其繁荣程度是不可比较的。究其原因，如今的服务端早已有各种办法解决 c10k 问题，而作为后起之秀，NodeJs 与原来的各种语言在服务端丰富的生态相比， 相对匮乏，更何况，如今的各种语言也有办法解决 c10k 问题，本来作为优势和特色的功能反而在一众服务端中不显。相反，由于 JavaScript 原作为浏览器上的语言，缺乏直接运行于本地的能力，而 NodeJs 恰恰补足了这种能力，这倒前端程序员以更多的能力。
 
-现如今， NodeJs 作为前端生态的一部分，正促进前端生态蓬勃发展。无论是各种框架的脚手架，还是各种 SSR ， NodeJs 都无法缺席。很多人都是从 JavaScript on Browser 转到 JavaScript on NodeJs 上来的，虽然同样是 JavaScript ，有着诸多相似，但二者还是存在些微的不同的。如果想要从服务端入手 NodeJs ，还是不建议与浏览器端的 JavaScript 搞混，虽然很多教学 NodeJs 书籍都默认你已经会 JavaScript on Browser 了。
+现如今， NodeJs 作为前端生态的一部分，正促进前端生态蓬勃发展。很多人都是从 JavaScript on Browser 转到 JavaScript on NodeJs 上来的，虽然同样是 JavaScript ，有着诸多相同的地方，但二者还是存在些微的不同的，比如在浏览器上， JavaScript 无法直接读取系统文件。 JavaScript on Browser 终究是个受限的 Runtime ，而 Node 则赋予了 JavaScript Native 的能力。对于前端程序员来说，采取 JavaScript 的 Node 比 Python 等语言要容易太多了，毕竟语法都一模一样。对于现在的前端程序员来说，用 Node 便省去了再学习一门语言以实现 Native 的烦恼。现在很多前端框架也都是通过 Node 来运行一个编译程序，以将模块化的 JavaScript 项目，编译成浏览器可运行的 JavaScript 脚本，其好处是，本地能够更工程化地组织项目而不受浏览器本身的限制，很好的满足了前端工程化的需要。
+
+不过比起前端，在后端， Node 还是更偏向于工具，或者是贴近前端的 Server 出现。虽然有 Express 、 Koa 等 Web 框架，但更多的似乎是作为前端框架的 Dev Server 或是 BFF 而存在，纯用 NodeJs 做后端的，现在仍然很少能见到。但 Node 做后端还是很堪用的，而且得利于 JavaScript 的动态性和 V8 本身的速度， Node 做服务器其实也不差。现实中，会用 Node 的人大多是全栈，毕竟 JavaScript 通吃前后端还是很梦幻的一件事。
 
 本书主要是为了介绍 JavaScript on NodeJS 所作的，并不涉及 JavaScript on Browser 。本书涉及到 JavaScript 学习，但不是 JavaScript 学习书籍。本书采用的 NodeJs 版本为 16 。本书并不教导如何安装 NodeJs ，请先自行查询官网后再阅读本书。
 
-本书首先会介绍 NodeJs 的基础使用和 JavaScript 基础语法，随后是一些常用的 API ；接着是有关于 NodeJs 包管理相关的一些内容；最后是有关 NodeJs 深入的一些内容的浅谈。本书内容比较简单，大家简单阅读学习。
+本书首先会介绍 NodeJs 的基础使用和 JavaScript 基础语法，随后是一些常用的 API ；接着是有关于 NodeJs 包管理相关的一些内容；最后是用 NodeJs 写一点小工程。可能还会附加一些 NodeJs 深入的一些内容。
