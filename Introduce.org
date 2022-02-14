@@ -1,0 +1,11 @@
+#+TITLE: 序言
+
+* 序言
+
+NodeJs 于 2009 年 5 月发布，迄今已逾 12 年了（本文写作于 2022 年 2 月撰），最初旨为解决 c10k 问题。但比起它原要专注的领域，现今在前端作为 JavaScript Runtime ，其繁荣程度是不可比较的。究其原因，如今的服务端早已有各种办法解决 c10k 问题，而作为后起之秀，NodeJs 与原来的各种语言在服务端丰富的生态相比， 相对匮乏，更何况，如今的各种语言也有办法解决 c10k 问题，本来作为优势和特色的功能反而在一众服务端中不显。相反，由于 JavaScript 原作为浏览器上的语言，缺乏直接运行于本地的能力，而 NodeJs 恰恰补足了这种能力，这倒前端程序员以更多的能力。
+
+现如今， NodeJs 作为前端生态的一部分，正促进前端生态蓬勃发展。无论是各种框架的脚手架，还是各种 SSR ， NodeJs 都无法缺席。很多人都是从 JavaScript on Browser 转到 JavaScript on NodeJs 上来的，虽然同样是 JavaScript ，有着诸多相似，但二者还是存在些微的不同的。如果想要从服务端入手 NodeJs ，还是不建议与浏览器端的 JavaScript 搞混，虽然很多教学 NodeJs 书籍都默认你已经会 JavaScript on Browser 了。
+
+本书主要是为了介绍 JavaScript on NodeJS 所作的，并不涉及 JavaScript on Browser 。本书涉及到 JavaScript 学习，但不是 JavaScript 学习书籍。本书采用的 NodeJs 版本为 16 。本书并不教导如何安装 NodeJs ，请先自行查询官网后再阅读本书。
+
+本书首先会介绍 NodeJs 的基础使用和 JavaScript 基础语法，随后是一些常用的 API ；接着是有关于 NodeJs 包管理相关的一些内容；最后是有关 NodeJs 深入的一些内容的浅谈。本书内容比较简单，大家简单阅读学习。

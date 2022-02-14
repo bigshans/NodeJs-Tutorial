@@ -1,0 +1,127 @@
+#+TITLE: 第一章 JavaScript 基础
+
+* 第一章 JavaScript 基础
+
+** JavaScript 脚本
+
+Node 作为 JavaScript Runtime ，可以直接运行 JavaScript 脚本。我们来简单编写一段 “Hello World” 的代码：
+
+#+begin_src javascript
+console.log("Hello World!"); // save as hello.js
+#+end_src
+
+此时我们打开命令行，运行 =node hello.js= 命令，将会在控制台打印出 =Hello World!= 的内容。
+
+Node 在此的用法与 Python 、 Ruby 等并无不同。
+
+很多人初学 React 、 Vue 等框架、还不熟悉 Node 的时候会疑惑， Node 在这里到底扮演了一个什么位置？实际上 Node 在这些框架中，只是运行用以编译你所写的 JSX 、 Vue 等文件的 JavaScript 脚本罢了， JSX 、 Vue 本身并不通过 Node 运行，换句话说，它只是作为框架编译器的运行时罢了。这一点随着对 NodeJs 了解更多之后就能理解了。
+
+** JavaScript 数据类型
+
+JavaScript 的数据类型主要有 number 、 boolean 、 symbol 、 object 、 string 、 null 、 undefined 、 BigInt 等类型，除去 object ，其余皆为原始值（primitive values），我们可以使用 =typeof= 检测值类型。
+
+#+begin_src javascript
+typeof true === 'boolean'
+typeof 1 === 'number'
+typeof Symbol() === 'symbol'
+typeof {} === 'object'
+typeof null === 'object'
+typeof BigInt === 'bigint'
+typeof undefined === 'undefined'
+#+end_src
+
+你会发现 =typeof null= $===$ ='object'= ， =null= 是这里的特殊情况，需要特判。
+
+*** number
+
+JavaScript 不区分浮点数和整数，比如 =1 / 2= 在 JavaScript 中等于 0.5 ，但这不代表 JavaScript 引擎就是把浮点数当作整数使用的。事实上，大多数引擎——比如 V8 ——其实现都是区分二者的，换句话说，整数比较是安全的，但浮点数不是。举个例子：
+
+#+begin_src javascript
+0.57 * 100 // 56.99999999999999
+#+end_src
+
+如果我们想要精确的浮点数运算，建议还是使用第三库，比如 bignumber 等。
+
+除了一般的数字之外， JavaScript 还存在两个特殊的数字： =Infinity= 和 =NaN= 。
+
+#+begin_src javascript
+1 / 0 // Infinity
+1 / 'a' // NaN
+#+end_src
+
+在 JavaScript 中，一个整数存在两种表现方式： =0= 。但在实际使用的过程中没有特别的影响。
+
+#+begin_src javascript
+0 === -0 // true
+1 / 0 // Infinity
+1 / -0 // -Infinity
+#+end_src
+
+另外，还需要注意的一点是， =NaN= 与任何值都不相等，包括它自己，判断 =NaN= 需要使用 =isNaN= 方法。
+
+#+begin_src javascript
+NaN === NaN // false
+isNaN(NaN) // true
+#+end_src
+
+*** boolean
+
+就是值 =true= 和 =false= 。
+
+*** symbol
+
+symbol 是一个新加入的数据类型，我们调用 =Symbol= 方法即可创建。 symbol 类型最大的作用就是防止重复。
+
+#+begin_src javascript
+Symbol('15') === Symbol('15') // false
+let a = Symbol('15');
+let b = a;
+a === b // true
+#+end_src
+
+我们可以使用 symbol 作为对象键名，而以 symbol 为键名的属性不会出现在 =for...in= 迭代和 =Object.keys()= 中，在 JSON 序列化的时候，也不会出现在结果里。因此，我们也可以实现一种近似私有属性的结构。
+
+*** string
+
+string 即是字符串，在 JavaScript 中，可以使用单引号、双引号、反引号来括起一个字符串。
+
+#+begin_src javascript
+'Hello World'
+"Hello World"
+`Hello
+World`
+#+end_src
+
+其中，单引号和双引号区别不大，可以视作不同的习惯，但反引号稍有不同。反引号可以表示多行字符串，同时，也可以进行插值。
+
+#+begin_src javascript
+const a = 444;
+console.log(`a: ${a}`); // a: 444
+#+end_src
+
+=`${...}`= 中，也可以使用表达式。
+
+*** null
+
+null 类型只有 =null= 一个值，使用 =typeof= 则显示为 =object= 。
+
+*** undefined
+
+undefined 类型也只有 =undefined= 一个值，当一个变量定义了但未初始化时，变量此刻的值即为 =undefined= 。
+
+#+begin_src javascript
+let a;
+typeof a === 'undefined'; // true
+#+end_src
+
+*** BigInt
+
+BigInt 就是在一般的整数后面加个 n ，用以表示大整数。
+
+#+begin_src javascript
+typeof 111n === 'bigint'; // true
+#+end_src
+
+需要注意的是， BigInt 不等于 number ，且 BigInt 也不允许转换为 number 。
+
+*** object
