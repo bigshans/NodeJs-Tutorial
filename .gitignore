@@ -1,2 +1,5 @@
 *.tex
 *.pdf
+*.log
+*.aux
+_minted-Index/*

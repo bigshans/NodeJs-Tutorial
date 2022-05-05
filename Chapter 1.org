@@ -14,7 +14,9 @@ console.log("Hello World!"); // save as hello.js
 
 Node 在此的用法与 Python 、 Ruby 等并无不同。
 
-很多人初学 React 、 Vue 等框架、还不熟悉 Node 的时候会疑惑， Node 在这里到底扮演了一个什么位置？实际上 Node 在这些框架中，只是运行用以编译你所写的 JSX 、 Vue 等文件的 JavaScript 脚本罢了， JSX 、 Vue 本身并不通过 Node 运行，换句话说，它只是作为框架编译器的运行时罢了。这一点随着对 NodeJs 了解更多之后就能理解了。
+很多人初学 React 、 Vue 等框架、还不熟悉 Node 的时候会疑惑， Node 在这里到底扮演了一个什么位置？实际上 Node 在这些框架中，只是运行用以编译你所写的 JSX 、 Vue 等文件的 JavaScript 脚本罢了， JSX 、 Vue 本身并不通过 Node 运行，换句话说，它只是作为框架编译器的运行时罢了。换句话说，我们使用 golang 或者 rust 同样编写一套框架编译器也是同样的，这就是 esbuild 可以使用 golang 编写的基本缘由。
+
+Node 本身是 JavaScript 的一个*运行时*，其底层采用 V8 引擎解析 JS 。在基础的语法层面，大致上与浏览器的 JavaScript 相差不多。因此学习 Node ，本身就是在学习一种 JavaScript 。
 
 ** JavaScript 数据类型
 
@@ -125,3 +127,13 @@ typeof 111n === 'bigint'; // true
 需要注意的是， BigInt 不等于 number ，且 BigInt 也不允许转换为 number 。
 
 *** object
+
+在 JavaScript 中，除开以上类型的所有类型都是 object 。比如说 ={}= 、 =Array= 等。
+
+** JavaScript 类型转换
+
+   JavaScript 是一门类型非常弱的语言，这为 JavaScript 带来了非常大的灵活性，但同时也对编程人员的能力提出要求。一门灵活的语言就意味着更需要对编码进行规范，以防止项目膨胀而导致代码的可读性及可维护性下降。
+
+   JavaScript 几乎是任何类型都可以互相转换，并且存在隐式类型转换，如果没有准确的理解类型转换的方向，很容易就跳入了陷阱。
+
+
