@@ -34,4 +34,78 @@
 
     字符串类型是我们经常打交道的类型，我们常常处理它，然后又将它转换为其他各种类型。
 
-    在 JavaScript 中，只有字符串类型，没有字符类型。
+    在 JavaScript 中，只有字符串类型，没有字符类型。但我们也可以像取数组里的元素一样取取出里面里面的字符，成为一个仅仅包含一个字符的字符串。比如：
+
+    #+BEGIN_SRC javascript
+    let a = '1000';
+    console.log(a[2]); // 0
+    #+END_SRC
+
+    但我们不能对它进行赋值，这点需要注意。
+
+    在 JavaScript 中，我们可以使用 =''= 、 =""= 、 =``= 。其中 =``= 比较特别，它是字符串模板，可以很方便的进行字符串格式化。
+
+    #+BEGIN_SRC javascript
+    const a = 12;
+    console.log(`a = ${a}`); // a = 12
+    #+END_SRC
+
+*** 布尔类型
+
+    JavaScript 的布尔类型值是 =true= 、 =false= 。
+
+*** =null= 、 =undefined= 类型
+
+    =null= 和 =undefined= 都代表值不存在， =undefined= 代表值未定义。
+
+    需要注意的一点是， =typeof null= 的值为 ='object'= 。
+
+    #+BEGIN_SRC javascript
+    let a; // 此时 a 为 undefined
+    a = null; // null 类型值就是 null
+    #+END_SRC
+
+*** 对象类型
+
+    除开其他基础类型，剩下的就是对象类型。在 JavaScript 中，数组和各种复合结构都是对象类型。也就是说，在 JavaScript 中，所有类型都在基本类型的范围内。
+
+    我们想要创建一个对象类型，常见的包括数组、字典、构造函数等等。
+
+    #+BEGIN_SRC javascript
+    const obj = {}; // 字典
+    const arr = []; // 数组
+    const date = new Date(); // 构造函数
+    #+END_SRC
+
+    我们着重讲讲一下前两个。
+
+**** 字典结构
+
+     字典结构是一个非常重要的结构，我们用得非常多。
+
+     #+BEGIN_SRC javascript
+     const obj = {
+        'hello': 'world!',
+        hi: 1,
+        fn: () => console.log('hello'),
+        map: {
+            a: 1,
+        },
+     };
+     #+END_SRC
+
+     在 JavaScript 中，字典并不限制键名与键值的类型。键名默认是字符串，因此键名写作 ='hello'= 和 =hello= 都是一样的。
+
+     如果我们需要使用其他类型作为键名，则需要用到 =[]= 。
+
+     #+BEGIN_SRC javascript
+     const k = {};
+     const obj = {
+        'hello world': 'jack',
+        [k]: 'b',
+     };
+     #+END_SRC
+
+     需要注意的是，当我们作键名的字符串带空格时，引号不能去掉。
+
+**** 数组结构
